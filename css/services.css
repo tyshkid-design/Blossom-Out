@@ -1,0 +1,147 @@
+/* ============================================================
+   services.css — Services page specific styles
+   ============================================================ */
+
+/* ── PKG SUB-NAVBAR ── */
+.pkg-nav-wrap {
+  position: sticky; top: 74px; z-index: 900;
+  background: #FDF8F4;
+  border-bottom: 2px solid rgba(107,45,107,0.12);
+  margin: 0 -5vw; padding: 0 5vw;
+  box-shadow: 0 4px 20px rgba(107,45,107,0.06);
+}
+.pkg-nav { display: flex; overflow-x: auto; scrollbar-width: none; }
+.pkg-nav::-webkit-scrollbar { display: none; }
+.pkg-tab {
+  display: flex; align-items: center; gap: 8px;
+  padding: 1rem 1.5rem;
+  background: none; border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px; font-weight: 500; color: #5A4A52;
+  white-space: nowrap; transition: color 0.22s, border-color 0.22s, background 0.22s;
+  margin-bottom: -2px; position: relative;
+}
+.pkg-tab:hover { color: #6B2D6B; background: rgba(107,45,107,0.04); }
+.pkg-tab.active { color: #6B2D6B; border-bottom-color: #6B2D6B; font-weight: 600; }
+.pkg-tab-icon { font-size: 17px; }
+
+/* ── TAB PANELS ── */
+.tab-panels { margin-top: 2.5rem; }
+.tab-panel { display: none; animation: fadeIn 0.35s ease; }
+.tab-panel.active { display: block; }
+
+/* Hero banner inside each tab */
+.tab-hero {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: center;
+  background: #fff; border-radius: 24px;
+  padding: 3rem; border: 1px solid rgba(107,45,107,0.1);
+  margin-bottom: 2rem; position: relative; overflow: hidden;
+}
+.tab-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0; width: 5px;
+  background: linear-gradient(180deg, #6B2D6B, #3A6B3A);
+}
+.tab-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #6B2D6B; font-weight: 600; margin-bottom: 0.5rem;
+}
+.tab-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem,2.5vw,2.2rem);
+  font-weight: 700; color: #1C1218; margin-bottom: 0.85rem;
+}
+.tab-desc { font-size: 15px; line-height: 1.85; color: #5A4A52; max-width: 560px; margin-bottom: 1.5rem; }
+.tab-hero-visual {
+  width: 150px; height: 150px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; flex-shrink: 0;
+}
+.school-visual    { background: #F5EAF5; }
+.growth-visual    { background: #EAF4EA; }
+.mentorship-visual{ background: #FEF6E8; }
+.coaching-visual  { background: #F0E8FE; }
+.corporate-visual { background: #E8F0FE; }
+
+/* Package detail cards */
+.pkg-cards-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap: 1.25rem; margin-bottom: 2rem;
+}
+.pkg-card {
+  background: #fff; border-radius: 18px;
+  padding: 1.75rem; border: 1px solid rgba(107,45,107,0.1);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.pkg-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(107,45,107,0.1); }
+.pkg-card-icon { font-size: 1.9rem; margin-left: auto; margin-bottom: 0.75rem; line-height: 1; }
+.pkg-card-title { font-size: 15px; font-weight: 700; color: #1C1218; margin-bottom: 0.5rem; }
+.pkg-card-desc { font-size: 13.5px; line-height: 1.75; color: #5A4A52; }
+.pkg-card-highlight { background: #F5EAF5; border-color: rgba(107,45,107,0.2); }
+.pkg-card-highlight .pkg-card-title { color: #6B2D6B; }
+
+/* Expanded section inside tab */
+.tab-expanded {
+  background: #FDF8F4; border-radius: 20px;
+  padding: 2rem; margin-top: 1.5rem;
+  border: 1px solid rgba(107,45,107,0.08);
+}
+.tab-expanded-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700; color: #1C1218;
+  margin-bottom: 1rem;
+}
+.tab-expanded ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.tab-expanded ul li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; line-height: 1.7; color: #5A4A52;
+}
+.tab-expanded ul li::before {
+  content: '✦'; color: #6B2D6B; font-size: 10px;
+  flex-shrink: 0; margin-top: 5px;
+}
+
+/* ── PRICING HINT ── */
+.pricing-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.25rem; margin-top: 2rem;
+}
+.price-card {
+  background: #fff; border-radius: 18px;
+  padding: 1.75rem; border: 1px solid rgba(107,45,107,0.1);
+  text-align: center;
+  transition: transform 0.22s, box-shadow 0.22s;
+  position: relative; overflow: hidden;
+}
+.price-card.featured { border-color: #6B2D6B; }
+.price-card.featured::before {
+  content: 'Most Popular';
+  position: absolute; top: 12px; right: -24px;
+  background: #6B2D6B; color: #fff;
+  font-size: 10px; font-weight: 600; padding: 4px 32px;
+  transform: rotate(35deg); letter-spacing: 0.05em;
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(107,45,107,0.12); }
+.price-tier { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8B7A82; margin-bottom: 0.5rem; font-weight: 600; }
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 700; color: #1C1218;
+  margin-bottom: 0.25rem;
+}
+.price-period { font-size: 12px; color: #8B7A82; margin-bottom: 1rem; }
+.price-features { font-size: 13.5px; color: #5A4A52; line-height: 1.7; text-align: left; margin-bottom: 1.25rem; }
+.price-features li { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 5px; }
+.price-features li::before { content: '✓'; color: #3A6B3A; font-weight: 700; flex-shrink: 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tab-hero { grid-template-columns: 1fr; padding: 1.75rem; }
+  .tab-hero-visual { display: none; }
+  .pkg-cards-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .pkg-cards-grid { grid-template-columns: 1fr; }
+  .pkg-tab { padding: 0.85rem 0.9rem; font-size: 12px; }
+}
